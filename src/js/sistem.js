@@ -1,9 +1,13 @@
 
 // array system
 function save(nomeDB,dados) {
+    // obtem o banco de dados
     const array = readData(nomeDB)
+    // armazena os dados informados ao usuario
     array.push(dados)
+    // transforma em string para que o localStorage aceite
     const arrayStr = JSON.stringify(array);
+    // salva no localStorage
     localStorage.setItem(nomeDB,arrayStr)
     // retorne o banco de dados
     return readData(nomeDB)
