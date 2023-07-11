@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste to do list app</title>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tarefa</h1>
+        <div class="container-header">
+            <div id="task"><input type="text" id="campo" placeholder="O que você vai fazer agora?"></div>
+            <h2>data e hora</h2>
+            <div id="info">
+                <input type="date" name="mes" id="data">
+                <input type="time" name="hora" id="hora">
+            </div>
+            <button id="add-btn"><ion-icon name="add-outline"></ion-icon></button>
+            <h2>Suas tarefas: </h2>
+        </div>
+        <div class="result">
+            <ul class=result-list>
+                <li class="list-item template hide">
+                    <span class="name-item"></span>
+                    <span class="line"></span>
+                    <span class="data-item"></span>
+                        <button class="done-btn"><ion-icon name="checkmark-outline"></ion-icon></button>
+                        <button class="trash-btn"><ion-icon name="trash-outline"></ion-icon></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="./src/js/script.js" defer></script>
+<script src="./src/js/sistem.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</html>
