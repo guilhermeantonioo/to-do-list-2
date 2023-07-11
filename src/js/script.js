@@ -1,20 +1,12 @@
 
-const add = document.querySelector('#add-btn');
+const add = document.getElementById('add-btn');
 
-function save(){
-    const campo = document.querySelector('#campo').value;
-    const itemList = localStorage.setItem('item' , campo);
-    if(item){
-        
-    }
-
+function removeItem() {
+    localStorage.remove('item', 1)
 }
-function removeItem(){
-    localStorage.remove('item' , 1)
-}
-function addItemSemHora (){
+function addItemSemHora() {
 
-    const campo = document.querySelector('#campo').value;
+    const campo = document.getElementById('campo').value;
     // clonar tamplate
     let template = document.querySelector('.template');
 
@@ -26,14 +18,14 @@ function addItemSemHora (){
 
     // adicionar o nome no item 
 
-    
+
     nomeItem.textContent = campo;
 
     // remover o template e o hide 
 
     newItem.classList.remove('template');
     newItem.classList.remove('hide');
-    
+
     // pegar e add a ul 
 
     const list = document.querySelector('.result-list');
@@ -41,92 +33,91 @@ function addItemSemHora (){
     console.log(newItem);
 
     // remover item
-    const trash = newItem.querySelector('.trash-btn').addEventListener('click' , function(){
+    const trash = newItem.querySelector('.trash-btn').addEventListener('click', function () {
         removeItem(this);
     });
 
     // done 
-    const done = newItem.querySelector('.done-btn').addEventListener('click' , function(){
+    const done = newItem.querySelector('.done-btn').addEventListener('click', function () {
         doneItem(this);
     })
     document.querySelector('#campo').value = '';
 }
-function addItem(){
+function addItem() {
 
-    const campo = document.querySelector('#campo').value;
-    const hora = document.querySelector('#hora').value;
-    const data = document.querySelector('#data').value;
-    if(campo == ''){
+    const campo = document.getElementById('campo').value;
+    const hora = document.getElementById('hora').value;
+    const data = document.getElementById('data').value;
+    if (campo == '') {
         alert('preencha o campo de descrição')
-    }else if(data == '' && hora == ''){
+    } else if (data == '' && hora == '') {
         addItemSemHora();
-    } else{
-    const dataFormatada = new Date(data).toLocaleDateString('pt-BR');
+    } else {
+        const dataFormatada = new Date(data).toLocaleDateString('pt-BR');
 
-    // clonar tamplate
-    let template = document.querySelector('.template');
+        // clonar tamplate
+        let template = document.querySelector('.template');
 
-    let newItem = template.cloneNode(true);
+        let newItem = template.cloneNode(true);
 
-    const nomeItem = newItem.querySelector('.name-item');
-    // const mesItem = newItem.querySelector('.mes-item');
-
-
-    const dataItem = newItem.querySelector('.data-item');
-    dataItem.textContent = ` -- Data :  ${dataFormatada} -- Hora: ${hora}h`
-    // adicionar o nome no item 
-
-    
-    nomeItem.textContent = campo;
-
-    // remover o template e o hide 
-
-    newItem.classList.remove('template');
-    newItem.classList.remove('hide');
-    
-    // pegar e add a ul 
-
-    const list = document.querySelector('.result-list');
-    list.appendChild(newItem);
-    console.log(newItem);
-    console.log(dataFormatada);
-
-    // remover item
-    const trash = newItem.querySelector('.trash-btn').addEventListener('click' , function(){
-        removeItem(this);
-    });
-
-    // done 
-    const done = newItem.querySelector('.done-btn').addEventListener('click' , function(){
-        doneItem(this);
-    })
+        const nomeItem = newItem.querySelector('.name-item');
+        // const mesItem = newItem.querySelector('.mes-item');
 
 
-    document.querySelector('#campo').value = '';
+        const dataItem = newItem.querySelector('.data-item');
+        dataItem.textContent = ` -- Data :  ${dataFormatada} -- Hora: ${hora}h`
+        // adicionar o nome no item 
+
+
+        nomeItem.textContent = campo;
+
+        // remover o template e o hide 
+
+        newItem.classList.remove('template');
+        newItem.classList.remove('hide');
+
+        // pegar e add a ul 
+
+        const list = document.querySelector('.result-list');
+        list.appendChild(newItem);
+        console.log(newItem);
+        console.log(dataFormatada);
+
+        // remover item
+        const trash = newItem.querySelector('.trash-btn').addEventListener('click', function () {
+            removeItem(this);
+        });
+
+        // done 
+        const done = newItem.querySelector('.done-btn').addEventListener('click', function () {
+            doneItem(this);
+        })
+
+
+        document.getElementById('campo').value = '';
+    }
 }
-}
 
 
 
-document.addEventListener('keyup' , function(e){
-    if(e.key=== 'Enter'){
+document.addEventListener('keyup', function (e) {
+    if (e.key === 'Enter') {
         addItem();
     }
 })
 
-function removeItem(item){
+function removeItem(item) {
     // acessando o pai do item e removendo com o true
     item.parentNode.remove(true);
     removeItem()
 }
 
-function doneItem(item){
+function doneItem(item) {
     const done = item.parentNode;
     done.classList.toggle('done');
 }
-add.addEventListener('click' , function(e){
+add.addEventListener('click', function (e) {
     e.preventDefault();
 
     addItem();
 })
-
