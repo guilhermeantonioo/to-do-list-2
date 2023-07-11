@@ -1,19 +1,19 @@
 
 // array system
-function save(dados) {
-    // obtem o banco de dados
-    data = readData(array);
-    // salve os dados novamente
-    data.push(dados)
+function save(nomeDB,dados) {
+    const array = readData(nomeDB)
+    console.log("Banco de dados encontrado:" + array)
+    array.push(dados)
+    localStorage.setItem(nomeDB,array)
     // retorne o banco de dados
-    return readData(data)
+    return readData(nomeDB)
 }
-function readData(nome) {
-    var data = localStorage.getItem(nome);
+function readData(nomeDB) {
+    var data = localStorage.getItem(nomeDB);
     // Verifica se o banco de dados não exitse
     if (!data) {
-        // define o banco de dados como o padrão se não encntrar
-        data = []
+    // define o banco de dados como o padrão se não encntrar
+    data = []
     }
     // calculos para medição de uso de dados
     const dataString = JSON.stringify(data)
@@ -23,12 +23,12 @@ function readData(nome) {
 
     // apenas para saber o que esta acontecendo
     console.log("-------DATA-SYSTEM------");
-    console.log('DATA ESPERADA: "[ITENS,ITENS2,ITENS3]"');
     console.log("DATA: " + dataString);
     console.log("TAMANHO: " + data.length);
     console.log("TAMANHO(Bytes): " + bytes);
     console.log("TAMANHO(KB): " + kBytes);
     console.log("TAMANHO(MB): " + mBytes);
+    console.log("DATA ESPERADA: [ITENS,ITENS2,ITENS3]");
     // retorna os dados lidos
     return data
 }
