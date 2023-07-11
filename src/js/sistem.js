@@ -2,14 +2,15 @@
 // array system
 function save(nomeDB,dados) {
     const array = readData(nomeDB)
-    console.log("Banco de dados encontrado:" + array)
     array.push(dados)
-    localStorage.setItem(nomeDB,array)
+    const arrayStr = JSON.stringify(array);
+    localStorage.setItem(nomeDB,arrayStr)
     // retorne o banco de dados
     return readData(nomeDB)
 }
 function readData(nomeDB) {
-    var data = localStorage.getItem(nomeDB);
+    const dataStr = localStorage.getItem(nomeDB);
+    var data = JSON.parse(dataStr);
     // Verifica se o banco de dados não exitse
     if (!data) {
     // define o banco de dados como o padrão se não encntrar
