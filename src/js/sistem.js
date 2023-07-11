@@ -1,6 +1,5 @@
-
 // array system
-function save(nomeDB,dados) {
+function saveData(nomeDB,dados) {
     // obtem o banco de dados
     const array = readData(nomeDB)
     // armazena os dados informados ao usuario
