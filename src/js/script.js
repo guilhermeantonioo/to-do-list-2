@@ -1,5 +1,6 @@
 
 const add = document.querySelector('#add-btn');
+const array  = readData("campos");
 
 function addItemSemHora (){
 
@@ -120,3 +121,9 @@ add.addEventListener('click' , function(e){
 
     addItem();
 })
+
+
+for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    // adicionar task com o nome do elemet
+}
