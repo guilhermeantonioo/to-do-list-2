@@ -11,7 +11,7 @@ function addItemSemHora (){
 
     const nomeItem = newItem.querySelector('.name-item');
     // const mesItem = newItem.querySelector('.mes-item');
-    saveData("campos",campo)
+    saveData("campoSemHora",campo)
 
     // adicionar o nome no item 
 
@@ -64,7 +64,9 @@ function addItem(){
     const dataItem = newItem.querySelector('.data-item');
     dataItem.textContent = ` -- Data :  ${dataFormatada} -- Hora: ${hora}h`
     // adicionar o nome no item 
-    saveData("campos",campo)
+    saveData("campo",campo)
+    saveData("hora",hora)
+    saveData("data",FormData)
     
     nomeItem.textContent = campo;
 
