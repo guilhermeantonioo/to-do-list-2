@@ -1,6 +1,9 @@
 
 const add = document.querySelector('#add-btn');
 const arrayCampoSemHora  = readData("campos");
+// pre carregar funções do sistem
+var readData;
+var saveData;
 
 function addItemSemHora (){
 
