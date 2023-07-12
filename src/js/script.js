@@ -64,7 +64,7 @@ function addItem(){
     const dataItem = newItem.querySelector('.data-item');
     dataItem.textContent = ` -- Data :  ${dataFormatada} -- Hora: ${hora}h`
     // adicionar o nome no item 
-
+    saveData("campos",campo)
     
     nomeItem.textContent = campo;
 
