@@ -126,7 +126,7 @@ add.addEventListener('click' , function(e){
 })
 
 
-for (let i = 0; i < array.length; i++) {
-    const element = array[i];
+for (let i = 0; i < arrayCampoSemHora.length; i++) {
+    const element = arrayCampoSemHora[i];
     // adicionar task com o nome do elemet
 }
