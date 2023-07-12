@@ -11,7 +11,7 @@ function addItemSemHora (){
 
     const nomeItem = newItem.querySelector('.name-item');
     // const mesItem = newItem.querySelector('.mes-item');
-
+    saveData("campos",campo)
 
     // adicionar o nome no item 
 
