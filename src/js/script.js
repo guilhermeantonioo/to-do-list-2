@@ -1,17 +1,6 @@
 
 const add = document.querySelector('#add-btn');
 
-function save(){
-    const campo = document.querySelector('#campo').value;
-    const itemList = localStorage.setItem('item' , campo);
-    if(item){
-        saveData(nomeDB,dados)
-    }
-
-}
-function removeItem(){
-    localStorage.remove('item' , 1)
-}
 function addItemSemHora (){
 
     const campo = document.querySelector('#campo').value;
